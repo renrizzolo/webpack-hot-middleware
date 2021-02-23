@@ -177,7 +177,7 @@ function createReporter() {
   function log(type, obj) {
     var newProblems = obj[type]
       .map(function (msg) {
-        return strip(msg);
+        return strip(msg.message ? msg.message : msg);
       })
       .join('\n');
     if (previousProblems == newProblems) {
